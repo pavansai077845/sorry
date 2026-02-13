@@ -39,16 +39,35 @@
 
         .dot-active {
             background: #fb7185;
-            width: 1.8rem;
+            width: 1.5rem;
             box-shadow: 0 0 12px rgba(251, 113, 133, 0.4);
         }
 
-        .spotify-code {
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-            max-width: 240px;
-            margin: 0.5rem auto;
-            border-radius: 12px;
-            border: 2px solid white;
+        .spotify-btn {
+            background: #1DB954;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+
+        .spotify-btn:active {
+            transform: scale(0.95);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -57,91 +76,106 @@
     <div id="float-container"></div>
     
     <!-- Header -->
-    <header class="relative z-10 px-8 pt-12 pb-2 text-center">
+    <header class="relative z-10 px-8 pt-10 pb-2 text-center fade-in">
         <h1 class="text-5xl romantic-script text-rose-500 mb-2">My Dearest Keethu</h1>
-        <p class="text-[10px] tracking-[0.5em] uppercase text-rose-300 font-bold">A special journey for you</p>
+        <p class="text-[10px] tracking-[0.4em] uppercase text-rose-300 font-bold italic">Every chapter leads back to you</p>
     </header>
 
     <!-- Main Letter Content -->
-    <main class="flex-1 px-6 flex flex-col items-center justify-center pb-24 relative z-10">
-        <div id="card" class="w-full max-w-sm p-8 glass-card transition-all duration-1000 relative overflow-hidden min-h-[500px] flex flex-col justify-between text-center">
+    <main class="flex-1 px-6 flex flex-col items-center justify-center pb-20 relative z-10">
+        <div id="card" class="w-full max-w-sm p-8 glass-card transition-all duration-500 relative overflow-hidden min-h-[520px] flex flex-col justify-between text-center">
             
             <div class="relative z-10">
                 <div class="flex justify-between items-center mb-4">
-                    <span id="card-date" class="text-[11px] font-bold text-rose-300 uppercase tracking-widest italic">Note</span>
+                    <span id="card-date" class="text-[11px] font-bold text-rose-300 uppercase tracking-widest italic">Feb 7</span>
                     <span class="text-rose-400">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     </span>
                 </div>
 
-                <h2 id="card-title" class="text-4xl romantic-script text-rose-600 mb-4">A Sincere Start</h2>
+                <h2 id="card-title" class="text-4xl romantic-script text-rose-600 mb-4">Rose Day</h2>
                 
                 <div id="card-content" class="flex flex-col gap-3">
-                    <p id="card-msg" class="text-[16px] text-rose-900/80 leading-relaxed font-light italic">
+                    <p id="card-msg" class="text-[15px] text-rose-900/80 leading-relaxed font-light italic">
                         <!-- Message Text -->
                     </p>
                     
                     <!-- Valentine Slide Extra Content -->
-                    <div id="valentine-extra" class="hidden flex flex-col items-center gap-4">
-                        <div class="flex flex-col items-center">
-                            <!-- <p class="text-[11px] text-rose-500 uppercase tracking-widest mb-1 font-bold italic"> </p> -->
-                            <p class="text-[10px] text-rose-400 font-medium mb-3">My line for you starts at 0:25</p>
-                            <img src="https://api.allorigins.win/raw?url=https://files.oaiusercontent.com/file-K1kKkO7fC6Y78w3I9L8l7I?se=2025-02-13T22%3A06%3A39Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20private%2C%20immutable%2C%20proxy-revalidate&rscd=attachment%3B%20filename%3D1294ef20-e221-4f16-832d-20d00f681a02.webp&sig=G06lW0v1K9%2BaD6z0M0xR5h1j2J5K/qQ%2B/p9YmN4vF0E%3D" class="spotify-code">
+                    <div id="valentine-extra" class="hidden flex flex-col items-center gap-2">
+                        <div class="flex flex-col items-center py-2">
+                            <p class="text-[10px] text-rose-500 font-bold uppercase tracking-widest mb-2 italic">A song that I dedicated to you...</p>
+                            <a href="https://open.spotify.com/track/5zK7gzWMZlT4TUf2iN2Wjw?si=bbZ6p7fdTNeX-32NPGZsDg" target="_blank" class="spotify-btn text-[10px]">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.508 17.302c-.223.366-.704.483-1.07.259-2.836-1.734-6.406-2.126-10.612-1.164-.418.096-.838-.168-.934-.586-.096-.418.168-.838.586-.934 4.606-1.052 8.55-.605 11.77 1.364.366.223.483.704.259 1.07zm1.472-3.257c-.28.455-.875.597-1.33.317-3.245-1.994-8.192-2.572-12.03-1.407-.51.156-1.05-.143-1.206-.653-.156-.51.143-1.05.653-1.206 4.382-1.33 9.845-.678 13.596 1.625.455.28.597.875.317 1.33zm.126-3.414C15.225 8.21 8.81 7.998 5.12 9.117c-.573.174-1.176-.153-1.35-.726-.174-.573.153-1.176.726-1.35 4.23-1.284 11.314-1.036 15.86 1.662.516.306.685.97.378 1.486-.306.516-.97.685-1.486.378z"/></svg>
+                                Open in Spotify
+                            </a>
+                            <p class="text-[10px] text-rose-400 font-medium mt-3 italic">My line for you starts at 0:25</p>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="mt-6 flex flex-wrap justify-center gap-2 relative z-10" id="dots">
+            <div class="mt-4 flex flex-wrap justify-center gap-1.5 relative z-10" id="dots">
                 <!-- Navigation Dots -->
             </div>
         </div>
         
-        <p class="mt-8 text-[10px] text-rose-400 font-bold uppercase tracking-[0.4em] animate-pulse">Touch the hearts to read</p>
+        <p class="mt-6 text-[10px] text-rose-400 font-bold uppercase tracking-[0.4em] animate-pulse">Touch the dots to navigate</p>
     </main>
 
     <script>
         const roadmap = [
             { 
-                date: "A Sincere Start", 
-                title: "Looking Back", 
-                msg: "Keethu, I'm truly sorry for being so impatient at the start of this week. I let my frustrations get the best of me, and I hate that it affected us. Please know that even when I'm being a bit slow, you're the only person I want to grow for.", 
+                date: "Feb 7", 
+                title: "Rose Day", 
+                msg: "Looking back at Rose Day, I'm truly sorry for being so impatient at the start of this week. I let my frustrations get the best of me, and I hate that it affected us. You're the only rose in my garden, and I'm dedicated to growing for you.", 
                 isValentine: false
             },
             { 
-                date: "Finding Words", 
-                title: "A Gentle Realization", 
-                msg: "I didn't even realize there were specific days for all this, but when I think of you, every day feels like a reason to choose you all over again. I hope you know that in my heart, I've already chosen 'us' forever.", 
+                date: "Feb 8", 
+                title: "Propose Day", 
+                msg: "Last weekend reminded me that every single day, I find myself wanting to choose you all over again. In my heart, I've already proposed a lifetime of us, regardless of what the calendar says.", 
                 isValentine: false
             },
             { 
-                date: "Pure Sweetness", 
-                title: "Sweet Thoughts", 
-                msg: "They say certain days are meant for sweetness, but nothing compares to the way your voice sounds or how you make me feel. You are the sweetest part of my entire world, Keethu.", 
+                date: "Feb 9", 
+                title: "Chocolate Day", 
+                msg: "Chocolate Day came and went, but it only proved that nothing is sweeter than your voice or the way you make me feel. You are, and always will be, the sweetest part of my entire world.", 
                 isValentine: false
             },
             { 
-                date: "Holding On", 
-                title: "Wishing I Was There", 
-                msg: "I missed the 'official' day for hugs, but the truth is, I miss your presence every single hour. I'm sending you a massive virtual squeeze right now—I hope you can feel it.", 
+                date: "Feb 10", 
+                title: "Teddy Day", 
+                msg: "Thinking about Teddy Day, I just wish I could have been there to hold you tight and never let go. Since I couldn't be there to squeeze you in person, I'm sending this virtual hug to keep you warm until I'm finally by your side.", 
                 isValentine: false
             },
             { 
-                date: "My Word to You", 
-                title: "A True Promise", 
-                msg: "I promise to keep putting in the effort, even when I'm being a 'dumb guy' and don't know the right way to show it yet. I'm learning how to love you better every single day.", 
+                date: "Feb 11", 
+                title: "Promise Day", 
+                msg: "My promise from a few days ago still stands: I will keep putting in the effort, even when I'm a bit slow to understand things. I am learning how to love you better every single day, and that's a vow I'll keep forever.", 
+                isValentine: false
+            },
+            { 
+                date: "Feb 12", 
+                title: "Hug Day", 
+                msg: "Even though Hug Day has passed, I still miss your presence every single hour. I'm sending you a massive virtual squeeze right now—I hope you can feel just how much I miss holding you in my arms.", 
+                isValentine: false
+            },
+            { 
+                date: "Feb 13", 
+                title: "Kiss Day", 
+                msg: "Yesterday was all about love, and today is even more so. I'm counting down the moments until I don't have to send my heart through a screen anymore and can show you how much you mean to me.", 
                 isValentine: false
             },
             { 
                 date: "Feb 14", 
                 title: "Happy Valentine's Day", 
-                msg: "Keethu, you are my home, my heart, and my absolute everything. I know I'm not there to celebrate in person, but you're always in my thoughts. I've dedicated this song to us because it says everything I can't put into words. I love you ❤️❤️❤️.", 
+                msg: "Keethu, you are my home, my heart, and my absolute everything. I've dedicated this song to us because it says everything I can't quite find the words for. I love you ❤️❤️❤️.", 
                 isValentine: true
             },
             { 
                 date: "A Final Note", 
-                title: "A Heartfelt Sorry", 
-                msg: "I'm genuinely sorry I'm not by your side today. It hurts not being able to hold your hand or see you smile in person, but thank you for being so patient with me. I love you more than words can express.", 
+                title: "I'm So Sorry", 
+                msg: "I'm genuinely sorry I'm not by your side today. It hurts not being able to hold your hand or see your beautiful smile in person today, but thank you for being so patient with me. I love you more than words can express.", 
                 isValentine: false
             }
         ];
@@ -154,7 +188,7 @@
             
             const card = document.getElementById('card');
             card.style.opacity = '0';
-            card.style.transform = 'scale(0.95)';
+            card.style.transform = 'translateY(10px)';
 
             setTimeout(() => {
                 document.getElementById('card-date').innerText = item.date;
@@ -171,11 +205,11 @@
                 }
 
                 card.style.opacity = '1';
-                card.style.transform = 'scale(1)';
-            }, 300);
+                card.style.transform = 'translateY(0)';
+            }, 250);
             
             const dots = roadmap.map((_, i) => `
-                <button onclick="show(${i})" class="h-1.5 rounded-full transition-all duration-500 ${i === idx ? 'dot-active' : 'w-2.5 bg-rose-100'}"></button>
+                <button onclick="show(${i})" class="h-1.5 rounded-full transition-all duration-500 ${i === idx ? 'dot-active' : 'w-1.5 bg-rose-100'}"></button>
             `).join('');
             document.getElementById('dots').innerHTML = dots;
         }
